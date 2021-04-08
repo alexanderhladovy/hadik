@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(255, 196, 0);
+            text-align: center;
+
+        }
+        canvas{
+            border: 10px solid red;
+        }
+
+    </style>
+    <canvas width="600" height="600"></canvas>
+    <script>
+        //canvas
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        
+        //player
+        const snakeSize = 50;
+        let snakePosX = 0
+        let snakePosY = canvas.height / 2 - snakeSize / 2
+        //loop
+        function gameloop() {
+
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            snakePosX = snakePosX + 2;
+
+            ctx.fillStyle = "black";
+            ctx.fillRect(snakePosX, snakePosY, snakeSize, snakeSize);
+
+            requestAnimationFrame(gameloop)
+        }
+
+        gameloop();
+       
+
+
+
+    </script>
+</head>
+<body>
+  
+</body>
+</html>
